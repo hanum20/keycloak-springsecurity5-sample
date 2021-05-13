@@ -35,9 +35,9 @@ spring:
               - profile
               - email
           keycloak:
-            client-id: ${CLIENT_ID}
-            client-secret: ${CLIENT_SECRET}
-            clientName: ${CLIENT_NAME}
+            client-id: ${client.id}
+            client-secret: ${client.secret}
+            clientName: ${client.name}
             authorization-grant-type: authorization_code
             redirectUriTemplate: '{baseUrl}/login/oauth2/code/{registrationId}'
             scope:
@@ -53,8 +53,8 @@ spring:
             jwk-set-uri: https://dev-727816.oktapreview.com/oauth2/v1/keys
             user-name-attribute: sub
           keycloak:
-            authorization-uri: ${KEYCLOAK_URL}/auth/realms/${KEYCLOAK_REALM}/protocol/openid-connect/auth
-            token-uri: ${KEYCLOAK_URL}/auth/realms/${KEYCLOAK_REALM}/protocol/openid-connect/token
-            user-info-uri: ${KEYCLOAK_URL}/auth/realms/${KEYCLOAK_REALM}/protocol/openid-connect/userinfo
-            jwk-set-uri: ${KEYCLOAK_URL}/auth/realms/${KEYCLOAK_REALM}/protocol/openid-connect/certs
+            authorization-uri: ${keycloak.url}/auth/realms/${keycloak.realm}/protocol/openid-connect/auth
+            token-uri: ${keycloak.url}/auth/realms/${keycloak.realm}/protocol/openid-connect/token
+            user-info-uri: ${keycloak.url}/auth/realms/${keycloak.realm}/protocol/openid-connect/userinfo
+            jwk-set-uri: ${keycloak.url}/auth/realms/${keycloak.realm}/protocol/openid-connect/certs
             user-name-attribute: preferred_username
